@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Scheduler</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .event-form fieldset {
+            border: none;
+            padding: 0;
+        }
+        .event-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .event-form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .event-form button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .event-form button:hover {
+            background-color: #218838;
+        }
+        .events-list article, .conflicts-list article {
+            padding: 10px;
+            background: #fafafa;
+            border-left: 5px solid #007bff;
+            margin-top: 10px;
+        }
+        .event-item.conflict {
+            border-left: 5px solid #dc3545;
+            background: #ffe6e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Scheduler</h1>
+    <div class="container">
+        <section class="box event-form">
+            <h2>Add Event</h2>
+            <form id="eventForm">
+                <fieldset>
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" required placeholder="Enter event name">
+                    
+                    <label for="startTime">Start Time:</label>
+                    <input type="time" id="startTime" required>
+                    
+                    <label for="endTime">End Time:</label>
+                    <input type="time" id="endTime" required>
+                    
+                    <button type="submit">Add Event</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="box events-list">
+            <h2>Scheduled Events</h2>
+            <div id="eventsList"></div>
+        </section>
+
+        <section class="box conflicts-list">
+            <h2>Conflicts</h2>
+            <div id="conflictsList"></div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
